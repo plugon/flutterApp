@@ -1,37 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
-import 'package:flutter/semantics.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
+    Widget titleSection = Container(
+      padding: const EdgeInsets.all(32),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(
+                    bottom: 8,
+                  ),
+                  child: Text('Oeschinen Lake Campground',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      )),
+                ),
+                Text(
+                  'Kandersteg, Switzerland',
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.red[500],
+          ),
+          Text('41'),
+        ],
+      ),
+    );
+
     return MaterialApp(
-        title: 'Welcome to Flutter',
-        home: Scaffold(
-            appBar: AppBar(
-              title: Text('Welcome to Flutter'),
-            ),
-            body: Center(
-                //child: Text(wordPair.asUpperCase),
-                child: RandomWords(),
-            ),
+      title: 'Flutter layout Demo',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter layout Demo'),
         ),
+        body: Column(
+          children: [
+            titleSection,
+          ],
+        ),
+      ),
     );
   }
-}
 
-class RandomWordsState extends State<RandomWords> {
+  Column _buildButtonColumn(Color color, IconData icon, String label){
+    return Column(  
 
-  Widget build(BuildContext context){
-    final wordPair = WordPair.random();
-    return Text(wordPair.asPascalCase);
+    );
   }
-}
-
-class RandomWords extends StatefulWidget {
-  @override
-  RandomWordsState createState() => RandomWordsState();
 }
